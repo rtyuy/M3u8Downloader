@@ -226,15 +226,12 @@ class M3u8Downloader:
 
 if __name__ == '__main__':
 
-    # parser = argparse.ArgumentParser(description="download video from m3u8")
-    # parser.add_argument('-u','--url',required=True ,help="m3u8 url")
-    # parser.add_argument('-o','--output', default="output.mp4", help="ouput video name, defult output.mp4")
-    # parser.add_argument('-t','--thread', type=int, default="20", help="thread num, default 20")
-    # parser.add_argument('--ffmpeg', action="store_true", default=True, help="use ffmpeg merge the ts file")
-    # args = parser.parse_args()
+    parser = argparse.ArgumentParser(description="download video from m3u8")
+    parser.add_argument('-u','--url',required=True ,help="m3u8 url")
+    parser.add_argument('-o','--output', default="output.mp4", help="ouput video name, defult output.mp4")
+    parser.add_argument('-t','--thread', type=int, default="20", help="thread num, default 20")
+    parser.add_argument('--ffmpeg', action="store_true", default=True, help="use ffmpeg merge the ts file")
+    args = parser.parse_args()
     
-    # downloader = M3u8Downloader(args.url, output= args.output, poolSize=args.thread, ffmpegFlag=args.ffmpeg)
-    # downloader.run()
-
-    downloader = M3u8Downloader('https://valipl.cp31.ott.cibntv.net/6975148072F4571CE92E15C16/05007C00005ECBC5798BB7800000009EAB2FB4-8A00-4C54-92D2-E2D3A2CBFB7F_video.m3u8?ccode=0502&duration=7370&expire=18000&psid=831197722bd3482c3803d7b250c702e847d30&ups_client_netip=279a0c42&ups_ts=1604924128&ups_userid=&utid=g4TXF0qawiACAdrKgAsAE%2FTj&vid=XMzA4OTA4OTQyMA&s=7edea84a006911e59e2a&sp=&bc=2&si=5&eo=0&vkey=B350afaf9ccb8b90cbc867320f9b113c8')
-    downloader.get_m3u8_info()
+    downloader = M3u8Downloader(args.url, output= args.output, poolSize=args.thread, ffmpegFlag=args.ffmpeg)
+    downloader.run()

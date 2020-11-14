@@ -31,7 +31,7 @@ class M3u8Downloader:
         self.tsList =[]
         self.poolSize = poolSize
         self.workDir = './tmp'
-        self.output = output,
+        self.output = output
         self.ffmpegFlag = ffmpegFlag
 
     def is_http(self, link):
@@ -217,6 +217,7 @@ class M3u8Downloader:
         startTime = time.time()
         self.get_m3u8_info()
         self.download()
+
         if self.ffmpegFlag:
             self.merge_tsfile_use_ffmpeg()
         else:
